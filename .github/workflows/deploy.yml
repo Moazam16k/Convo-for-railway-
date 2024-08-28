@@ -1,4 +1,4 @@
-name: app.py
+name: Deploy
 on:
   push:
     branches: main
@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    name: app.py
+    name: Deploy
     runs-on: ubuntu-latest
 
     permissions:
@@ -24,7 +24,7 @@ jobs:
           deno-version: v1.x
 
       - name: Build step
-        run: "main.py"
+        run: "python main.py"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
