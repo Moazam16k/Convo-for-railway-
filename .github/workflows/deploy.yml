@@ -23,6 +23,14 @@ jobs:
         with:
           deno-version: v1.x
 
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install step
+        run: "Flask install requests "
+
       - name: Build step
         run: "python main.py"
 
@@ -30,5 +38,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "moazam16k-convo-for-r-60"
-          entrypoint: ""
-          root: ""
+          entrypoint: "main.py"
+          root: "python main.py"
